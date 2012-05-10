@@ -1,0 +1,14 @@
+{
+    "name": "hubot-jabbr",
+    "version": "0.1.0",
+    "author": "Scott Moak <scott.moak@mybrainoncode.com>",
+    "main": "./src/jabbr.coffee",
+    "engine": "node > 0.6.0 < 0.7.0",
+
+    "dependencies": {
+        "njabbr": "0.2.1"
+    },
+    "devDependencies": {
+        "coffee-script": "1.1.3"
+    }
+}

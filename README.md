@@ -1,4 +1,3 @@
-hubot-jabbr
-===========
+# Hubot Jabbr Adapter
 
-Jabbr adapter for Hubot
+A Hubot adapter for [http://jabbr.net](Jabbr)

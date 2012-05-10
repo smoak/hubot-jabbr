@@ -1,0 +1,19 @@
+test: coffee-dep js
+	@find test -name '*_test.coffee' | xargs -n 1 -t coffee
+
+dev: js
+	@coffee -wc --bare -o lib src/
+
+js: coffee-dep
+	@coffee -c --bare -o lib src/
+
+remove-js:
+	@rm -fr lib/
+
+npm-dep:
+	@test `which npm` || echo 'You need npm to do npm install... makes sense?'
+
+coffee-dep:
+	@test `which coffee` || echo 'You need to have CoffeeScript in your PATH.\nPlease install it using `brew install coffee-script` or `npm install coffee-script`.'
+
+.PHONY: all
