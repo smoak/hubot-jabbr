@@ -1,5 +1,7 @@
-Robot = require('hubot').robot()
-Adapter = require('hubot').adapter()
+Robot = require('hubot').Robot
+Adapter = require('hubot').Adapter
+TextMessage = require('hubot').TextMessage
+Response = require('hubot').Response
 
 JabbrClient = require('njabbr').JabbrClient
 
@@ -50,7 +52,7 @@ class JabbrBot extends Adapter
 
             user.room = room
             
-            self.receive new Robot.TextMessage(user, msg.Content)
+            self.receive new TextMessage(user, msg.Content)
 
         @bot = bot
 
@@ -62,7 +64,7 @@ class JabbrBot extends Adapter
                 bot.joinRoom room, () ->
                     console.log "Joined #{room}"
             
-class JabbrResponse extends Robot.Response
+class JabbrResponse extends Response
     notice: (strings...) ->
         @robot.adapter.notice @message.user, strings...
 

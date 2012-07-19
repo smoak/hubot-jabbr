@@ -1,10 +1,17 @@
 {
     "name": "hubot-jabbr",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "author": "Scott Moak <scott.moak@mybrainoncode.com>",
+    "description": "Jabbr adapter for Hubot 2.3+",
     "main": "./src/jabbr.coffee",
-    "engine": "node > 0.6.0 < 0.7.0",
-
+    "engine": "node > 0.6.0 < 0.8.0",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/smoak/hubot-jabbr.git"
+    },
+    "bugs": {
+        "url": "https://github.com/smoak/hubot-jabbr/issues"
+    },
     "dependencies": {
         "njabbr": "latest"
     },
