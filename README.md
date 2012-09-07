@@ -2,7 +2,7 @@
 
 ## Description
 
-A Hubot adapter for [http://jabbr.net](Jabbr)
+A Hubot adapter for [Jabbr](http://jabbr.net)
 
 ## Installation
 
