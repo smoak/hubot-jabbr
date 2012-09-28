@@ -24,6 +24,14 @@ class JabbrBot extends Adapter
             else
                 console.log "#{user.name} #{str}"
                 @bot.sendPrivateMessage(user.name, str)
+                
+    reply: (user, strings...) ->
+        for str in strings
+            if not str?
+                continue
+            else
+                console.log "#{user.name} #{str}"
+                @bot.say('@' + user.name + ' ' + str, user.room)
 
     join: (room) ->
         self = @
