@@ -46,9 +46,10 @@ class JabbrBot extends Adapter
             rooms:      process.env.HUBOT_JABBR_ROOMS.split(',')
             host:       process.env.HUBOT_JABBR_HOST
             password:   process.env.HUBOT_JABBR_PASSWORD
+            transport:  process.env.HUBOT_JABBR_TRANSPORT or "serverSentEvents"
             
 
-        bot = new JabbrClient options.host
+        bot = new JabbrClient options.host, { transport: options.transport }
 
         bot.on 'messageReceived', (msg, room) ->
             

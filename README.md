@@ -4,10 +4,13 @@
 
 A Hubot adapter for [Jabbr](http://jabbr.net)
 
-## Installation
+## Hubot Compatibility
 
-**NOTICE** This adapter will only work with Hubot 2.3+. It will not
-work with earlier versions.
+Use version 0.2.x if you are using Hubot 2.3.x
+Use version 0.3.x if you are using Hubot 2.4.x
+All other hubot versions are not supported
+
+## Installation
 
 * Add `hubot-jabbr` as a dependency in your hubots `package.json`
 * Run `npm install` in your hubots directory.
@@ -18,8 +21,7 @@ work with earlier versions.
 You need to set a few environment variables in order for it to work
 
 **NB** If the nick isn't already registered on the jabbr host you are using, 
-the nick will automatically get registered with the `HUBOT_JABBR_PASSWORD`
-you set.
+the nick will need to be registered first.
 
 ### GNU/Linux
 
@@ -31,6 +33,9 @@ you set.
 
     % export HUBOT_JABBR_ROOMS="Room1,Room2,Room3"
 
+    # Optional, you can choose the transport to use to connect to the server with. Default is serverSentEvents
+    % export HUBOT_JABBR_TRANSPORT="longPolling"
+
 ### Heroku
 
     % heroku config:add HUBOT_JABBR_HOST="http://yourjabbrhosthere.com"
@@ -40,6 +45,17 @@ you set.
     % heroku config:add HUBOT_JABBR_PASSWORD="ThePassword"
 
     % heroku config:add HUBOT_JABBR_ROOMS="Room1,Room2,Room3"
+
+    # Optional, you can choose the transport to use to connect to the server with. Default is serverSentEvents
+    % heroku config:add HUBOT_JABBR_TRANSPORT="longPolling"
+
+
+### Supported transports
+
+These transports are currently supported by njabbr:
+
+* serverSentEvents - Uses SSE to connect to the server if the server supports it.
+* longPolling - Uses long polling (i.e. a time based poll of the server info)
 
 ## Contributing
 
