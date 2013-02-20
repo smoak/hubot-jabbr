@@ -60,7 +60,7 @@ class JabbrBot extends Adapter
 
             user.room = room
             
-            self.receive new TextMessage (user, msg.Content, msg.Id)
+            self.receive new TextMessage user, msg.Content, msg.Id
 
         @bot = bot
 
