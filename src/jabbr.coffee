@@ -14,24 +14,24 @@ class JabbrBot extends Adapter
 
         @robot.Response = JabbrResponse
 
-    send: (user, strings...) ->
+    send: (envelope, strings...) ->
         for str in strings
             if not str?
                 continue
-            if user.room
-                console.log "#{user.room} #{str}"
-                @bot.say(str, user.room)
+            if envelope.user.room
+                console.log "#{envelope.user.room} #{str}"
+                @bot.say(str, envelope.user.room)
             else
-                console.log "#{user.name} #{str}"
-                @bot.sendPrivateMessage(user.name, str)
+                console.log "#{envelope.user.name} #{str}"
+                @bot.sendPrivateMessage(envelope.user.name, str)
                 
-    reply: (user, strings...) ->
+    reply: (envelope, strings...) ->
         for str in strings
             if not str?
                 continue
             else
-                console.log "#{user.name} #{str}"
-                @bot.say('@' + user.name + ' ' + str, user.room)
+                console.log "#{envelope.user.name} #{str}"
+                @bot.say('@' + envelope.user.name + ' ' + str, envelope.user.room)
 
     join: (room) ->
         self = @
@@ -60,7 +60,7 @@ class JabbrBot extends Adapter
 
             user.room = room
             
-            self.receive new TextMessage(user, msg.Content)
+            self.receive new TextMessage (user, msg.Content, msg.Id)
 
         @bot = bot
 
