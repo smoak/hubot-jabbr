@@ -61,7 +61,8 @@ class JabbrBot extends Adapter
 
             user.room = room
             
-            self.receive new TextMessage user, msg.Content, msg.Id
+            unless options.nick == user.name
+                self.receive new TextMessage user, msg.Content, msg.Id
 
         @bot = bot
 
