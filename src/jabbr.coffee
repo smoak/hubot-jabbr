@@ -4,6 +4,7 @@ TextMessage = require('hubot').TextMessage
 Response = require('hubot').Response
 
 JabbrClient = require('njabbr').JabbrClient
+JabbrClientEvents = require('njabbr').JabbrClientEvents
 
 class JabbrBot extends Adapter
     constructor: (@robot) ->
@@ -51,7 +52,7 @@ class JabbrBot extends Adapter
 
         bot = new JabbrClient options.host, { transport: options.transport }
 
-        bot.on 'messageReceived', (msg, room) ->
+        bot.on JabbrClientEvents.onMessageReceived, (msg, room) ->
             
             user = self.userForName msg.User.Name
             unless user?

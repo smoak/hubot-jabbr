@@ -6,9 +6,9 @@ A Hubot adapter for [Jabbr](http://jabbr.net)
 
 ## Hubot Compatibility
 
-Use version 0.2.x if you are using Hubot 2.3.x
-Use version 0.3.x if you are using Hubot 2.4.x
-All other hubot versions are not supported
+* Use version 0.2.x if you are using Hubot 2.3.x
+* Use version 0.3.x if you are using Hubot 2.4.x
+* All other hubot versions are not supported
 
 ## Installation
 
