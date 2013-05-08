@@ -52,18 +52,18 @@ class JabbrBot extends Adapter
 
         bot = new JabbrClient options.host, { transport: options.transport }
 
-        bot.on JabbrClientEvents.onMessageReceived, (msg, room) ->
-            
-            user = self.userForName msg.User.Name
+        bot.on 'messageReceived', (msg, room) ->
+           
+            user = self.userForName msg.name
             unless user?
                 id = (new Date().getTime() / 1000).toString().replace('.','')
                 user = self.userForId id
-                user.name = msg.User.Name
+                user.name = msg.name
 
             user.room = room
             
-            unless options.nick == user.name
-                self.receive new TextMessage user, msg.Content, msg.Id
+            self.receive new TextMessage user, msg.message, msg.id
+            console.log(self.receive)
 
         @bot = bot
 
