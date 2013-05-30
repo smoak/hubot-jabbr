@@ -54,16 +54,16 @@ class JabbrBot extends Adapter
 
         bot.on JabbrClientEvents.onMessageReceived, (msg, room) ->
             
-            user = self.userForName msg.User.Name
+            user = self.robot.brain.userForName msg.name
             unless user?
                 id = (new Date().getTime() / 1000).toString().replace('.','')
-                user = self.userForId id
-                user.name = msg.User.Name
+                user = self.robot.brain.userForId id
+                user.name = msg.name
 
             user.room = room
             
             unless options.nick == user.name
-                self.receive new TextMessage user, msg.Content, msg.Id
+                self.receive new TextMessage user, msg.message, msg.Id
 
         @bot = bot
 
