@@ -1,6 +1,6 @@
 {
     "name": "hubot-jabbr",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "author": "Scott Moak <scott.moak@mybrainoncode.com>",
     "description": "Jabbr adapter for Hubot 2.4+",
     "main": "./src/jabbr.coffee",
