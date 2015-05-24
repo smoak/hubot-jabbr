@@ -48,6 +48,7 @@ class JabbrBot extends Adapter
             host:       process.env.HUBOT_JABBR_HOST
             password:   process.env.HUBOT_JABBR_PASSWORD
             transport:  process.env.HUBOT_JABBR_TRANSPORT or "longPolling"
+            gravatar:   process.env.HUBOT_JABBR_GRAVATAR
             
 
         bot = new JabbrClient options.host, { transport: options.transport }
@@ -68,8 +69,9 @@ class JabbrBot extends Adapter
         @bot = bot
 
         bot.connect options.nick, options.password, (task) ->
-            console.log("Logged in");
+            console.log("Logged in")
             self.emit 'connected'
+            bot.setGravatar(options.gravatar) if options.gravatar?
             
             for room in options.rooms
                 bot.joinRoom room, () ->

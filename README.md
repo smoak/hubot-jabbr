@@ -37,6 +37,9 @@ the nick will need to be registered first.
     # Optional, you can choose the transport to use to connect to the server with. Default is serverSentEvents
     % export HUBOT_JABBR_TRANSPORT="longPolling"
 
+    # Optional, you can set the gravatar with the following:
+    % export HUBOT_JABBR_GRAVATAR="gravatar@email.com"
+
 ### Heroku
 
     % heroku config:add HUBOT_JABBR_HOST="http://yourjabbrhosthere.com"
@@ -49,6 +52,9 @@ the nick will need to be registered first.
 
     # Optional, you can choose the transport to use to connect to the server with. Default is serverSentEvents
     % heroku config:add HUBOT_JABBR_TRANSPORT="longPolling"
+
+    # Optional, you can set the gravatar with the following:
+    % heroku config:add HUBOT_JABBR_GRAVATAR="gravatar@email.com"
 
 
 ### Supported transports
